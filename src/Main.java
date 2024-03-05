@@ -8,6 +8,7 @@
  *  10:09 - 10:44 > 33m > 45m
  *  11:00 - 11:27 > 27m > 72m
  *  12:22 - 12:30 > 18m > 90m
+ *  1:06 - 1:40 > 34m > 124m
  * }
  * 
  * Pseudo code :
@@ -42,9 +43,7 @@ public class Main {
             public void mouseClicked(MouseEvent e) {
                 int[] results = machine.pullLever();
 
-                for (int i : results) {
-                    System.out.println(i);
-                }
+                
             }
             @Override
             public void mouseEntered(MouseEvent e) {}
