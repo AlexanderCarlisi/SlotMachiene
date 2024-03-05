@@ -6,6 +6,9 @@ public class Wheel {
     private final Random random = new Random();
     private final ArrayList<Integer> slot;
 
+    /**
+     * Initialize Wheel, populates Slot.
+     */
     public Wheel() {
         slot = new ArrayList<>();
         populate();
@@ -18,7 +21,7 @@ public class Wheel {
         // Add 5 elements 2 times
         for (int i = 0; i < 2; i++) {
             // 5 elements
-            for (int j = 0; j < 4; j++) 
+            for (int j = 0; j < 5; j++) 
                 slot.add(j);
         }
     }
@@ -30,7 +33,7 @@ public class Wheel {
      * @return element at 0
      */
     public int spin() {
-        int spins = random.nextInt(11) + 10;
+        int spins = random.nextInt(20) + 1;
 
         for (int i = 0; i < spins; i++) {
             Collections.shuffle(slot);

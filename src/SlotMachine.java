@@ -12,5 +12,15 @@ public class SlotMachine {
      */
     public SlotMachine() {
         wheels = new Wheel[NUMBER_OF_SLOTS];
+        for (int i = 0; i < NUMBER_OF_SLOTS; i++)
+            wheels[i] = new Wheel();
+    }
+
+    /**
+     * Starts the Slot Machine Roullete.
+     * @return results of each Wheel's spin.
+     */
+    public int[] pullLever() {
+        return new int[] {wheels[0].spin(), wheels[1].spin(), wheels[2].spin()};
     }
 }
