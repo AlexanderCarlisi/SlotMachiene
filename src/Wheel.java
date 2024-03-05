@@ -41,4 +41,12 @@ public class Wheel {
 
         return slot.get(0);
     }
+
+    /**
+     * Get the element at 0 of slot.
+     * @return
+     */
+    public int getSlotValue() {
+        return slot.get(0);
+    }
 }
