@@ -29,9 +29,19 @@ public class SlotMachine {
      * 
      * 2 congruent slots = Prize B
      * 3 congruent slots = Prize A
-     * @return Displayable Text to tell the user what they won.
+     * @return Displayable Text to tell the user what they won. Null if nothing was won.
      */
     public String checkWinnings() {
-        
+        int[] slotValues = new int[3];
+        for (int i = 0; i < 3; i++) {
+            slotValues[i] = wheels[i].getSlotValue();
+        }
+
+        if (slotValues[0] == slotValues[1]) return "You won Prize B!";
+        else if (slotValues[1] == slotValues[2]) return "You won Prize B!";
+        else if (slotValues[0] == slotValues[2]) return "You won Prize B!";
+        else if (slotValues[0] == slotValues[1] && slotValues[1] == slotValues[2]) return "You won Prize A!";
+
+        return null;
     }
 }

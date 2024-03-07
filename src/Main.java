@@ -43,7 +43,8 @@ public class Main {
             public void mouseClicked(MouseEvent e) {
                 int[] results = machine.pullLever();
 
-                
+                String message = machine.checkWinnings();
+                System.out.println(message);
             }
             @Override
             public void mouseEntered(MouseEvent e) {}
