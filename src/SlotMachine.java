@@ -36,11 +36,11 @@ public class SlotMachine {
         for (int i = 0; i < 3; i++) {
             slotValues[i] = wheels[i].getSlotValue();
         }
-
-        if (slotValues[0] == slotValues[1]) return "You won Prize B!";
+        
+        if (slotValues[0] == slotValues[1] && slotValues[1] == slotValues[2]) return "You won Prize A!";
+        else if (slotValues[0] == slotValues[1]) return "You won Prize B!";
         else if (slotValues[1] == slotValues[2]) return "You won Prize B!";
         else if (slotValues[0] == slotValues[2]) return "You won Prize B!";
-        else if (slotValues[0] == slotValues[1] && slotValues[1] == slotValues[2]) return "You won Prize A!";
 
         return null;
     }
