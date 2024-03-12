@@ -1,23 +1,29 @@
 import javax.swing.*;
 import java.awt.*;
 
+// Main Class
 public class Main {
+    // Static Constants
     private static final String folderPath = "src/Images/";
     private static final String fileType = ".jpg";
 
     private static double money = 100; // Player's Money
     private static final double cost = 10; // Cost to Pull Lever
     
+    // Main Method
     public static void main(String[] args) throws Exception {
+        // Create GUI
         JFrame gui = new JFrame();
         gui.setTitle("Slot Machine");
         gui.setSize(500, 500);
         gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        // Create Panel
         JPanel panel = new JPanel();
         JPanel slotPanel = new JPanel();
         slotPanel.setLayout(new BoxLayout(slotPanel, BoxLayout.X_AXIS));
         
+        // Create Slot Labels
         JLabel[] slotLabels = new JLabel[3];
         for (int i = 0; i < 3; i++) {
             slotPanel.add(Box.createHorizontalGlue());
@@ -25,14 +31,20 @@ public class Main {
             slotPanel.add(slotLabels[i]);
         }
 
+        // Money Label
         JLabel moneyLabel = new JLabel("Money: $" + money);
         panel.add(moneyLabel);
         
+        // Create Slot Machine
         SlotMachine slotMachine = new SlotMachine();
         
+        // Create Spin Button
         JButton spinButton = new JButton("Spin");
+        // Spin Button Action
         spinButton.addActionListener(e -> {
+            // Pull Lever
             int[] results = slotMachine.pullLever();
+            // Set Slot Images
             for (int i = 0; i < 3; i++) {
                 // Scale Image to desired size
                 ImageIcon icon = new ImageIcon(folderPath + results[i] + fileType);
@@ -60,10 +72,12 @@ public class Main {
             moneyLabel.setText("Money: $" + money);
         });
         
+        // Add Components
         panel.add(slotPanel);
         panel.add(spinButton);
         gui.add(panel);
         
+        // Set Visible
         slotPanel.setVisible(true);
         panel.setVisible(true);
         gui.setVisible(true);
