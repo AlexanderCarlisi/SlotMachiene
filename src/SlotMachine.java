@@ -1,6 +1,11 @@
 import java.util.Random;
 
 public class SlotMachine {
+
+    public static enum Prize {
+        None, A, B
+    }
+
     // Static Constants
     private static final int NUMBER_OF_SLOTS = 3;
 
@@ -29,19 +34,19 @@ public class SlotMachine {
      * 
      * 2 congruent slots = Prize B
      * 3 congruent slots = Prize A
-     * @return Displayable Text to tell the user what they won. Null if nothing was won.
+     * @return Prize
      */
-    public String checkWinnings() {
+    public Prize checkWinnings() {
         int[] slotValues = new int[3];
         for (int i = 0; i < 3; i++) {
             slotValues[i] = wheels[i].getSlotValue();
         }
         
-        if (slotValues[0] == slotValues[1] && slotValues[1] == slotValues[2]) return "You won Prize A!";
-        else if (slotValues[0] == slotValues[1]) return "You won Prize B!";
-        else if (slotValues[1] == slotValues[2]) return "You won Prize B!";
-        else if (slotValues[0] == slotValues[2]) return "You won Prize B!";
+        if (slotValues[0] == slotValues[1] && slotValues[1] == slotValues[2]) return Prize.A;
+        else if (slotValues[0] == slotValues[1]) return Prize.B;
+        else if (slotValues[1] == slotValues[2]) return Prize.B;
+        else if (slotValues[0] == slotValues[2]) return Prize.B;
 
-        return null;
+        return Prize.None;
     }
 }

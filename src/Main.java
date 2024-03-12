@@ -6,6 +6,9 @@ import java.awt.event.MouseListener;
 public class Main {
     private static final String folderPath = "src/Images/";
     private static final String fileType = ".jpg";
+
+    private static double money = 100; // Player's Money
+    private static final double cost = 10; // Cost to Pull Lever
     
     public static void main(String[] args) throws Exception {
         JFrame gui = new JFrame();
@@ -23,6 +26,9 @@ public class Main {
             slotLabels[i] = new JLabel();
             slotPanel.add(slotLabels[i]);
         }
+
+        JLabel moneyLabel = new JLabel("Money: $" + money);
+        panel.add(moneyLabel);
         
         SlotMachine slotMachine = new SlotMachine();
         
@@ -39,6 +45,21 @@ public class Main {
                 // Modify Button
                 slotLabels[i].setIcon(scaledIcon);
             }
+
+            // Check Winnings
+            SlotMachine.Prize prize = slotMachine.checkWinnings();
+            if (prize == SlotMachine.Prize.A) {
+                money += 100;
+                JOptionPane.showMessageDialog(null, "You won Prize A! +$100");
+            } else if (prize == SlotMachine.Prize.B) {
+                money += 50;
+                JOptionPane.showMessageDialog(null, "You won Prize B! +$50");
+            } else {
+                money -= cost;
+                JOptionPane.showMessageDialog(null, "You lost! -$10");
+            }
+
+            moneyLabel.setText("Money: $" + money);
         });
         
         panel.add(slotPanel);
