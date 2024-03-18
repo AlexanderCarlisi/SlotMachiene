@@ -1,3 +1,30 @@
+/*
+ * Alexander Carlisi
+ * AP CSA
+ * Project : Slot Machine
+ */
+
+/* PSEUDO CODE
+ * 
+ * 
+ * Main Method
+ * Create GUI
+ * Create Panel
+ * Create Slot Labels
+ * Create Slot Machine
+ * Create Spin Button
+ * Add Components
+ * Set Visible
+ * 
+ * Spin Button Action
+ * Pull Lever
+ * Set Slot Images
+ * Check Winnings
+ * Update Money Label
+ * 
+ */
+
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,7 +35,7 @@ public class Main {
     private static final String fileType = ".jpg";
 
     private static double money = 100; // Player's Money
-    private static final double cost = 10; // Cost to Pull Lever
+    private static final double cost = 35; // Cost to Pull Lever
     
     // Main Method
     public static void main(String[] args) throws Exception {
@@ -66,7 +93,12 @@ public class Main {
                 JOptionPane.showMessageDialog(null, "You won Prize B! +$50");
             } else {
                 money -= cost;
-                JOptionPane.showMessageDialog(null, "You lost! -$10");
+                JOptionPane.showMessageDialog(null, "You lost! -$"+cost);
+            }
+
+            if (money < cost) {
+                JOptionPane.showMessageDialog(null, "You lost all your money! Game Over!\n99.9% of gamblers quit before they hit it big. Don't be a statistic!");
+                System.exit(0);
             }
 
             moneyLabel.setText("Money: $" + money);

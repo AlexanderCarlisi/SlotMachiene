@@ -1,3 +1,18 @@
+/*
+ * Psuedo Code:
+ * 
+ * Slot Machine Class :
+ * - Prize Enumeration
+ *   - None, A, B
+ * - Number of Slots
+ * - Wheels
+ * - Pull Lever
+ * - Check Winnings
+ *  - 2 congruent slots = Prize B
+ *  - 3 congruent slots = Prize A
+ */
+
+
 /**
  * Slot Machine Class
  * 

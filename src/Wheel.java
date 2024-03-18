@@ -1,3 +1,16 @@
+/*
+ * Psuedo Code:
+ * 
+ * Wheel Class : 
+ * - Slot ArrayList
+ * - Populate Slot
+ *  - Add 5 elements 2 times
+ * - Spin Wheel
+ *  - Randomly Spin 10-20 times
+ * - Get Slot Value at 0
+ */
+
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
